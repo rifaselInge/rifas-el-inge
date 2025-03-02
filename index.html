@@ -183,33 +183,8 @@
     <footer>
         <p>&copy; 2025 Rifas el Inge. Todos los derechos reservados.</p>
     </footer>
-               <script type="module">
-  // Importa las funciones que necesitas del SDK de Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";  // Importa Firestore
-
-  // Tu configuración de Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyAMnpWXv-MUj_aPGLHx1H6Lvw5WYinKhAw",
-    authDomain: "rifas-el-inge.firebaseapp.com",
-    databaseURL: "https://rifas-el-inge-default-rtdb.firebaseio.com",
-    projectId: "rifas-el-inge",
-    storageBucket: "rifas-el-inge.firebasestorage.app",
-    messagingSenderId: "779515097846",
-    appId: "1:779515097846:web:68a7e48a485b271dfdf2d7",
-    measurementId: "G-P5HQYJ6P9M"
-  };
-
-  // Inicializa Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
-  // Inicializa Firestore
-  const db = getFirestore(app);  // Inicialización de Firestore
-        const numerosDisponibles = Array.from({ length: 100 }, (_, i) => String(i + 1).padStart(3, "0"));
-        let numerosSeleccionados = [];
-
+            
+    <script>
         function mostrarVentana(id) {
             const secciones = document.querySelectorAll("main > section");
             secciones.forEach(seccion => {
@@ -328,6 +303,33 @@
             }
         }
     </script>
+       <script type="module">
+  // Importa las funciones que necesitas del SDK de Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";  // Importa Firestore
+
+  // Tu configuración de Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyAMnpWXv-MUj_aPGLHx1H6Lvw5WYinKhAw",
+    authDomain: "rifas-el-inge.firebaseapp.com",
+    databaseURL: "https://rifas-el-inge-default-rtdb.firebaseio.com",
+    projectId: "rifas-el-inge",
+    storageBucket: "rifas-el-inge.firebasestorage.app",
+    messagingSenderId: "779515097846",
+    appId: "1:779515097846:web:68a7e48a485b271dfdf2d7",
+    measurementId: "G-P5HQYJ6P9M"
+  };
+
+  // Inicializa Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // Inicializa Firestore
+  const db = getFirestore(app);  // Inicialización de Firestore
+        const numerosDisponibles = Array.from({ length: 100 }, (_, i) => String(i + 1).padStart(3, "0"));
+        let numerosSeleccionados = [];
+               </script>
 </body>
 </html>
 
