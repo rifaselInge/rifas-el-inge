@@ -98,14 +98,12 @@
 </head>
 <body>
     <script type="module">
-  // Import the functions you need from the SDKs you need
+  // Importa las funciones que necesitas del SDK de Firebase
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";  // Importa Firestore
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // Tu configuración de Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyAMnpWXv-MUj_aPGLHx1H6Lvw5WYinKhAw",
     authDomain: "rifas-el-inge.firebaseapp.com",
@@ -117,10 +115,13 @@
     measurementId: "G-P5HQYJ6P9M"
   };
 
-  // Initialize Firebase
+  // Inicializa Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-</script>
+
+  // Inicializa Firestore
+  const db = getFirestore(app);  // Inicialización de Firestore
+
     <header>
         <img src="https://rifaselinge.github.io/rifas-el-inge/assets/logo.png" alt="Logo Rifas el Inge">
         <h1>Rifas el Inge</h1>
