@@ -135,7 +135,7 @@
             <p>Premio seleccionado: <span id="premioSeleccionado"></span></p>
             <div>
                 <label for="cantidadBoletos">Cantidad de boletos:</label>
-                <input type="number" id="cantidadBoletos" min="1" max="10">
+                <input type="number" id="cantidadBoletos" min="1" max="100">
             </div>
             <button onclick="maquinaDeLaSuerte()">Usar Máquina de la Suerte</button>
             <div id="resultadoSuerte"></div>
@@ -162,9 +162,8 @@
             <h2>Métodos de Pago</h2>
             <p>Puedes realizar tu pago a través de los siguientes métodos:</p>
             <ul>
-                <li>Transferencia bancaria: Cuenta 123456789</li>
-                <li>Pago móvil: Número 987654321</li>
-                <li>Efectivo: Contacta con nosotros para más información</li>
+                <li>Transferencia bancaria: Santander</li>
+                <li>Cuenta: 5579070129540202</li>
             </ul>
         </section>
         <section id="contacto" class="hidden">
@@ -246,8 +245,8 @@
             const cantidad = parseInt(document.getElementById("cantidadBoletos").value);
             const resultadoSuerte = document.getElementById("resultadoSuerte");
 
-            if (isNaN(cantidad) || cantidad < 1 || cantidad > 10) {
-                resultadoSuerte.innerHTML = "<p>Por favor, ingresa una cantidad válida de boletos (1-10).</p>";
+            if (isNaN(cantidad) || cantidad < 1 || cantidad > 100) {
+                resultadoSuerte.innerHTML = "<p>Por favor, ingresa una cantidad válida de boletos (1-100).</p>";
                 return;
             }
 
