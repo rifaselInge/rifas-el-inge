@@ -97,6 +97,30 @@
     </style>
 </head>
 <body>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAMnpWXv-MUj_aPGLHx1H6Lvw5WYinKhAw",
+    authDomain: "rifas-el-inge.firebaseapp.com",
+    databaseURL: "https://rifas-el-inge-default-rtdb.firebaseio.com",
+    projectId: "rifas-el-inge",
+    storageBucket: "rifas-el-inge.firebasestorage.app",
+    messagingSenderId: "779515097846",
+    appId: "1:779515097846:web:68a7e48a485b271dfdf2d7",
+    measurementId: "G-P5HQYJ6P9M"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
     <header>
         <img src="https://rifaselinge.github.io/rifas-el-inge/assets/logo.png" alt="Logo Rifas el Inge">
         <h1>Rifas el Inge</h1>
@@ -266,19 +290,32 @@
             mostrarVentana("registro-datos");
         }
 
-        function registrarDatos(event) {
-            event.preventDefault();
-            const nombre = document.getElementById("nombreCompleto").value;
-            const telefono = document.getElementById("telefono").value;
+       function registrarDatos(event) {
+    event.preventDefault();
+    const nombre = document.getElementById("nombreCompleto").value;
+    const telefono = document.getElementById("telefono").value;
 
-            if (nombre && telefono) {
-                alert(`Registro completado:\nNombre: ${nombre}\nTeléfono: ${telefono}\nBoletos: ${numerosSeleccionados.join(", ")}`);
-                numerosSeleccionados = [];
-                mostrarVentana("metodos-pago");
-            } else {
-                alert("Por favor, completa todos los campos.");
-            }
-        }
+    if (nombre && telefono) {
+        // Guardar los datos en Firebase
+        db.collection("registros").add({
+            nombre: nombre,
+            telefono: telefono,
+            boletos: numerosSeleccionados,
+            fecha: new Date()
+        })
+        .then(() => {
+            alert('Registro completado correctamente');
+            numerosSeleccionados = [];  // Limpiar la lista de boletos seleccionados
+            mostrarVentana("metodos-pago");
+        })
+        .catch((error) => {
+            console.error("Error al registrar los datos: ", error);
+            alert("Ocurrió un error al registrar los datos.");
+        });
+    } else {
+        alert("Por favor, completa todos los campos.");
+    }
+}
 
         function verificarBoleto() {
             const entrada = document.getElementById("numeroBoleto").value.trim();
