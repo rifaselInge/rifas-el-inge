@@ -306,7 +306,6 @@
        <script type="module">
   // Importa las funciones que necesitas del SDK de Firebase
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
   import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";  // Importa Firestore
 
   // Tu configuración de Firebase
@@ -323,7 +322,6 @@
 
   // Inicializa Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 
   // Inicializa Firestore
   const db = getFirestore(app);  // Inicialización de Firestore
